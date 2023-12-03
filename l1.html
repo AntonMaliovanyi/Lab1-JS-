@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab1</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            #colorPicker {
+                margin-bottom: 10px;
+            }
+
+            #fontButtons {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="text">This text wasn`t written by ChatGPT</h2>
+
+        <input type="color" id="change_a_color" value="#000000">
+        
+        <div id="fontButtons">
+            <button class="btn1">Arial</button>
+            <button name="btn2">Times New Roman</button>
+            <button>Courier New</button>
+        </div>
+
+        <script>
+            var col = document.querySelector("input")
+            
+            const bt_arial = document.getElementsByClassName("btn1")[0]
+            const bt_tnr = document.getElementsByName("btn2")[0]
+            const bt_courier_new = document.querySelectorAll("button")[2]
+
+            const myText = document.getElementsByTagName("h2")[0]
+            const myTextId = document.getElementById("text")
+
+            bt_arial.addEventListener('click', function () {
+                myText.style.fontFamily = ('Arial, sans-serif');
+            });
+            bt_tnr.addEventListener('click', function () {
+                myText.style.fontFamily = ('Times New Roman, serif');
+            });
+            bt_courier_new.addEventListener('click', function () {
+                myText.style.fontFamily = ('Courier New, monospace');
+            });
+
+            myText.addEventListener("mouseover", function() {
+                myText.textContent = "Don`t touch me";
+            });
+            myText.addEventListener("mouseout", function() {
+                myText.textContent = "This text wasn`t written by ChatGPT";
+            });
+
+            col.addEventListener("input", function() {
+                var color = col.value;
+                myTextId.style.color = color;
+            });
+
+        </script>
+    </body>
+</html>
